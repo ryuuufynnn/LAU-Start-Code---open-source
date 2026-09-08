@@ -1,5 +1,7 @@
 from pathlib import Path
 
+penguin_name = "Lux"
+
 LANGUAGES = {
     "1": ("Python", ".py"),
     "2": ("Java", ".java"),
@@ -61,8 +63,8 @@ def main():
     print("LAU Start Code")
 
     project_name = input("\nProject Name: ")
-
     language, extension = choose_language()
+    template = choose_template()
 
     project_path = create_project(
         project_name,
@@ -76,3 +78,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    # TO DO
+    # if there's an existing folder name: "example" it should be "example2"
