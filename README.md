@@ -99,7 +99,11 @@ Open **PowerShell** or **Command Prompt** and run:
 ```powershell
 git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
 ```
-
+Install this globally:
+```powershell
+scoop install pipx
+pipx ensurepath
+```
 Then enter the repository:
 
 ```powershell
@@ -108,10 +112,10 @@ cd LAU-Start-Code---open-source
 
 ### 4. Install LAU Start Code
 
-Install the package using pip:
+Install the package using pipx:
 
 ```powershell
-python -m pip install .
+pipx install .
 ```
 
 ### 5. Run LAU Start Code
@@ -141,10 +145,10 @@ LAU Start Code can be installed on most Linux distributions with Python and pip.
 
 #### 1. Install Requirements
 
-Install Git, Python, and pip:
+Install Git, and Python:
 
 ```bash
-sudo pacman -S git python python-pip
+sudo pacman -S git python
 ```
 
 Check Python:
@@ -153,16 +157,14 @@ Check Python:
 python --version
 ```
 
-Check pip:
-
-```bash
-python -m pip --version
-```
-
 #### 2. Clone the Repository
 
 ```bash
 git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
+```
+Install this globally:
+```bash
+sudo pacman -S python pipx
 ```
 
 Enter the repository:
@@ -174,7 +176,7 @@ cd LAU-Start-Code---open-source
 #### 3. Install LAU Start Code
 
 ```bash
-python -m pip install .
+pipx install .
 ```
 
 #### 4. Run LAU Start Code
@@ -200,7 +202,7 @@ sudo apt update
 Install Git, Python, and pip:
 
 ```bash
-sudo apt install git python3 python3-pip
+sudo apt install git python3 pipx
 ```
 
 Check Python:
@@ -209,10 +211,10 @@ Check Python:
 python3 --version
 ```
 
-Check pip:
+Check pipx:
 
 ```bash
-python3 -m pip --version
+pipx --version
 ```
 
 #### 2. Clone the Repository
@@ -230,7 +232,7 @@ cd LAU-Start-Code---open-source
 #### 3. Install LAU Start Code
 
 ```bash
-python3 -m pip install .
+pipx install .
 ```
 
 #### 4. Run LAU Start Code
@@ -247,10 +249,10 @@ You can now use `stcode lau` from any directory.
 
 #### 1. Install Requirements
 
-Install Git, Python, and pip:
+Install Git, Python, and pipx:
 
 ```bash
-sudo dnf install git python3 python3-pip
+sudo dnf install git python3 pipx
 ```
 
 Check Python:
@@ -259,10 +261,10 @@ Check Python:
 python3 --version
 ```
 
-Check pip:
+Check pipx:
 
 ```bash
-python3 -m pip --version
+pipx --version
 ```
 
 #### 2. Clone the Repository
@@ -280,7 +282,7 @@ cd LAU-Start-Code---open-source
 #### 3. Install LAU Start Code
 
 ```bash
-python3 -m pip install .
+pipx install .
 ```
 
 #### 4. Run LAU Start Code
@@ -298,7 +300,7 @@ You can now use `stcode lau` from any directory.
 After installation, simply run:
 
 ```bash
-lau stcode
+stcode lau
 ```
 
 You do **not** need to run:
@@ -320,7 +322,7 @@ Projects created by LAU Start Code are stored in:
 Running:
 
 ```bash
-lau stcode
+stcode lau
 ```
 
 can create a project like:
@@ -403,5 +405,5 @@ This command can be executed from any directory after installation.
 
 This project is open source, you can freely create an improved version please contact me!
 ```bash
-https://facebook.com/laudagf
+https://facebook.com/laudgaf
 ```
