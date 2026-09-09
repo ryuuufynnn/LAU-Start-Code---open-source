@@ -119,16 +119,16 @@ python -m pip install .
 After installation, run:
 
 ```powershell
-lau stcode
+stcode lau
 ```
 
-You can use `lau stcode` from any directory. You do not need to stay inside the cloned repository.
+You can use `stcode lau` from any directory. You do not need to stay inside the cloned repository.
 
 For example:
 
 ```powershell
 cd Documents
-lau stcode
+stcode lau
 ```
 
 ---
@@ -162,7 +162,7 @@ python -m pip --version
 #### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/ryuuyfynn/LAU-Start-Code---open-source.git
+git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
 ```
 
 Enter the repository:
@@ -180,10 +180,10 @@ python -m pip install .
 #### 4. Run LAU Start Code
 
 ```bash
-lau stcode
+stcode lau
 ```
 
-You can now use `lau stcode` from any directory.
+You can now use `stcode lau` from any directory.
 
 ---
 
@@ -218,7 +218,7 @@ python3 -m pip --version
 #### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/ryuuyfynn/LAU-Start-Code---open-source.git
+git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
 ```
 
 Enter the repository:
@@ -236,10 +236,10 @@ python3 -m pip install .
 #### 4. Run LAU Start Code
 
 ```bash
-lau stcode
+stcode lau
 ```
 
-You can now use `lau stcode` from any directory.
+You can now use `stcode lau` from any directory.
 
 ---
 
@@ -268,7 +268,7 @@ python3 -m pip --version
 #### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/ryuuyfynn/LAU-Start-Code---open-source.git
+git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
 ```
 
 Enter the repository:
@@ -286,10 +286,10 @@ python3 -m pip install .
 #### 4. Run LAU Start Code
 
 ```bash
-lau stcode
+stcode lau
 ```
 
-You can now use `lau stcode` from any directory.
+You can now use `stcode lau` from any directory.
 
 ---
 
@@ -394,11 +394,14 @@ C:\Users\YourUsername\Projects
 The main command for LAU Start Code is:
 
 ```bash
-lau stcode
+stcode lau
 ```
 
 This command can be executed from any directory after installation.
 
 # License
 
-This project is open source.
+This project is open source, you can freely create an improved version please contact me!
+```bash
+https://facebook.com/laudagf
+```
