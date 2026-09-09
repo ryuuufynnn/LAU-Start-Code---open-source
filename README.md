@@ -164,7 +164,7 @@ git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
 ```
 Install this globally:
 ```bash
-sudo pacman -S python pipx
+sudo pacman -S python-pipx
 ```
 
 Enter the repository:
@@ -199,7 +199,7 @@ Update the package list:
 sudo apt update
 ```
 
-Install Git, Python, and pip:
+Install Git, Python, and pipx:
 
 ```bash
 sudo apt install git python3 pipx
