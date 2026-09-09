@@ -1,13 +1,3 @@
-
----
-
-# README.md
-
-For the README, I'd make it a little more polished and user-oriented.
-
-Replace your current `README.md` with:
-
-```markdown
 # LAU Start Code
 
 A simple terminal-based project starter tool for quickly creating programming projects.
