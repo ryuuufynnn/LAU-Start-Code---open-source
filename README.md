@@ -403,5 +403,5 @@ This command can be executed from any directory after installation.
 
 This project is open source, you can freely create an improved version please contact me!
 ```bash
-https://facebook.com/laudagf
+https://facebook.com/laudgaf
 ```
