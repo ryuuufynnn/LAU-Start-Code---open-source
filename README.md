@@ -20,10 +20,13 @@ A simple terminal-based project starter tool for quickly creating programming pr
 Currently supported:
 
 * Python
-* C++
+* TypeScript
 * Java
 * PHP
 * JavaScript
+* C
+* C++
+* C#
 * Web Development
 
 ### Web Development
