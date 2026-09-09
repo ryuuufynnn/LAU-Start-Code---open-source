@@ -97,7 +97,7 @@ git --version
 Open **PowerShell** or **Command Prompt** and run:
 
 ```powershell
-git clone https://github.com/ryuuyfynn/LAU-Start-Code---open-source.git
+git clone https://github.com/ryuuufynnn/LAU-Start-Code---open-source.git
 ```
 
 Then enter the repository:
