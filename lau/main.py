@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 penguin_name = "Lux"
@@ -7,10 +8,53 @@ LANGUAGES = {
     "2": ("Java", ".java"),
     "3": ("C", ".c"),
     "4": ("C++", ".cpp"),
-    "5": ("C#", ".cs"),   
+    "5": ("C#", ".cs"),
     "6": ("JavaScript", ".js"),
     "7": ("PHP", ".php"),
-    "8": ("TypeScript", ".ts"),   
+    "8": ("TypeScript", ".ts"),
+    "9": ("Web Development", None),
+}
+
+SOURCE_TEMPLATES = {
+    "Python": "# Python file and folder template.\nprint('Made by Laurence')\n",
+    "Java": (
+        "// Java file and folder template.\n"
+        "public class Main {\n"
+        "    public static void main(String[] args) {\n"
+        '        System.out.println("Made by Laurence");\n'
+        "    }\n"
+        "}\n"
+    ),
+    "C": (
+        "// C file and folder template.\n"
+        "#include <stdio.h>\n\n"
+        "int main(void) {\n"
+        '    printf("Made by Laurence\\n");\n'
+        "    return 0;\n"
+        "}\n"
+    ),
+    "C++": (
+        "// C++ file and folder template.\n"
+        "#include <iostream>\n\n"
+        "int main() {\n"
+        '    std::cout << "Made by Laurence\\n";\n'
+        "    return 0;\n"
+        "}\n"
+    ),
+    "C#": (
+        "// C# file and folder template.\n"
+        "using System;\n\n"
+        "class Program\n"
+        "{\n"
+        "    static void Main()\n"
+        "    {\n"
+        '        Console.WriteLine("Made by Laurence");\n'
+        "    }\n"
+        "}\n"
+    ),
+    "JavaScript": "// JavaScript file and folder template.\nconsole.log('Made by Laurence');\n",
+    "PHP": "<?php\n// PHP file and folder template.\necho 'Made by Laurence';\n",
+    "TypeScript": "// TypeScript file and folder template.\nconsole.log('Made by Laurence');\n",
 }
 
 def choose_language():
@@ -26,58 +70,86 @@ def choose_language():
             return LANGUAGES[choice]
         print("Invalid choice.Please try again.")
 
-def choose_template():
-    print("\nChoose a project template:")
-    print("1. Basic")
-    print("2. Web dev")
+def get_available_project_path(projects_path, project_name):
+    project_path = projects_path / project_name
+
+    if not project_path.exists():
+        return project_path
+    counter = 2
 
     while True:
-        choice = input("\nEnter choice: ")
+        new_name = project_name + str(counter)
+        new_path = projects_path / new_name
 
-        if choice == "1":
-            return "basic"
-        if choice == "2":
-            return "web"
-        
-        print("Invalid choice. Please try again.")
+        if not new_path.exists():
+            return new_path
+        counter = counter + 1
 
-def create_project(project_name, language, extension, template):
+def create_project(project_name, language, extension):
     projects_path = Path.home() / "Projects"
-    projects_path.mkdir(exist_ok = True)
+    projects_path.mkdir(exist_ok=True)
 
-    project_path = projects_path / project_name
+    # project_path = projects_path / project_name
+    project_path = get_available_project_path(projects_path, project_name)
     project_path.mkdir()
 
-    if template == "basic":
-        filename = "Main" if language == 'Java' else "main"
-        source_file = project_path / f"{filename}{extension}"
-        source_file.touch()
-    elif template == "web":
-        (project_path / "index.html").touch()
-        (project_path / "style.css").touch()
-        (project_path / "script.js").touch()
+    if language == "Web Development":
+        (project_path / "index.html").write_text(
+            """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <p>Made by Laurence</p>
+</body>
+<script src="script.js"></script>
+</html>
+"""
+        )
 
-    return project_path\
+        (project_path / "style.css").write_text("/* Web Development styles. */\n")
+        (project_path / "script.js").write_text(
+            "// Web Development script template.\nconsole.log('Made by Laurence');\n"
+        )
+    else:
+        filename = "Main" if language == "Java" else "main"
+        source_file = project_path / f"{filename}{extension}"
+        source_file.write_text(SOURCE_TEMPLATES[language])
+
+    return project_path
 
 def main():
-    print("LAU Start Code")
+    args = sys.argv[1:]
 
+    if args:
+        if args[0] == "stcode":
+            start_code()
+        else:
+            print(f"Unknown command: {args[0]}")
+    else:
+        print("Usage: lau stcode")
+
+def start_code():
+    print("\nStarting Code...")
+
+    print("\nLAU Start Code")
+    
     project_name = input("\nProject Name: ")
     language, extension = choose_language()
-    template = choose_template()
-
-    project_path = create_project(
-        project_name,
-        language,
-        extension,
-        template
-    )
-
-    print("\nProject craeted successfully!")
-    print(f"Location: {project_path}")
+    
+    project_path = create_project(project_name, language, extension)
+    
+    print("\nProject created successfully!")
+    print(f"Location: {project_path}\n")
 
 if __name__ == "__main__":
     main()
 
-    # TO DO
-    # if there's an existing folder name: "example" it should be "example2"
+    # TO DO - v2 implementation idea.
+    # if there's an existing folder name: "example" it should be "example2" - done
+    # isama ang web-dev sa programing language choices - done
+    # mag add ng print statement sa file na ginawa - done
