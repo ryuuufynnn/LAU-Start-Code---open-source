@@ -126,12 +126,12 @@ def main():
     args = sys.argv[1:]
 
     if args:
-        if args[0] == "stcode":
+        if args[0] == "lau":
             start_code()
         else:
             print(f"Unknown command: {args[0]}")
     else:
-        print("Usage: lau stcode")
+        print("Usage: stcode lau")
 
 def start_code():
     print("\nStarting Code...")

@@ -10,4 +10,4 @@ readme = "README.md"
 requires-python = ">=3.9"
 
 [project.scripts]
-lau = "lau.main:main"
+stcode = "lau.main:main"
