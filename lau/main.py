@@ -1,7 +1,8 @@
-import sys
+import sys # for command line args
+import subprocess # for vs code opening
 from pathlib import Path
 
-penguin_name = "Lux"
+penguin_name = "stcode lau"
 
 LANGUAGES = {
     "1": ("Python", ".py"),
@@ -58,17 +59,22 @@ SOURCE_TEMPLATES = {
 }
 
 def choose_language():
-    print("\n Chose a Programming Language: ")
 
-    for number, (name, extension) in LANGUAGES.items():
-        print(f"{number}, {name}")
+    MAGENTA = colors()[4]
+    RED = colors()[0]
+    RESET = colors()[6]
 
+    print(f"\n{MAGENTA}Choose a Programming Language: ")
+
+    for key, (language, extension) in LANGUAGES.items():
+        print(f" [{key}] {language}")
+    print("")
     while True:
-        choice = input("Enter choice: ")
+        choice = input(f"{MAGENTA}  > Choice > {RESET}").strip()
 
         if choice in LANGUAGES:
             return LANGUAGES[choice]
-        print("Invalid choice.Please try again.")
+        print(f"{RED} Invalid choice. Please try again.{RESET}")
 
 def get_available_project_path(projects_path, project_name):
     project_path = projects_path / project_name
@@ -89,7 +95,6 @@ def create_project(project_name, language, extension):
     projects_path = Path.home() / "Projects"
     projects_path.mkdir(exist_ok=True)
 
-    # project_path = projects_path / project_name
     project_path = get_available_project_path(projects_path, project_name)
     project_path.mkdir()
 
@@ -122,6 +127,18 @@ def create_project(project_name, language, extension):
 
     return project_path
 
+def colors():
+    # ANSI escape codes for colors
+    RED = "\033[91m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
+    MAGENTA = "\033[95m"
+    CYAN = "\033[96m"
+    RESET = "\033[0m"
+
+    return RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, RESET
+
 def main():
     args = sys.argv[1:]
 
@@ -134,17 +151,31 @@ def main():
         print("Usage: stcode lau")
 
 def start_code():
-    print("\nStarting Code...")
+    RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, RESET = colors()
 
-    print("\nLAU Start Code")
-    
-    project_name = input("\nProject Name: ")
+    print(f"\n {CYAN}------------ LAU START CODE ------------{RESET}")
+    print("|                 v2.0.0                 |")
+
+    print(f"\n{CYAN}> Project Setup")
+    print(f"{CYAN} ----------------------------------------{RESET}")
+    project_name = input(f"\n{MAGENTA}  > Project Name >{RESET} ").strip()
     language, extension = choose_language()
     
     project_path = create_project(project_name, language, extension)
     
-    print("\nProject created successfully!")
-    print(f"Location: {project_path}\n")
+    print(F"\n{GREEN}Project created successfully!")
+    print(f"Project Name          : {project_name}")
+    print(f"Programming Language  : {language}")
+    print(f"Location              : {project_path}{RESET}")
+
+    open_code_editor = input(f"\n  > Do you want to open VS Code [Y/n]? > {RESET}").strip().lower()
+
+    if open_code_editor == "y":
+        subprocess.run(["code", project_path])
+    elif open_code_editor == "n":
+        print(f"{YELLOW}Thank You for using LAU Start Code! Happy Coding!{RESET}\n")
+    else:
+        print(f"{YELLOW}Thank You for using LAU Start Code! Happy Coding!{RESET}\n")
 
 if __name__ == "__main__":
     main()
