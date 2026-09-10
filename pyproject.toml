@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "stcode lau"
+name = "stcode-lau"
 version = "2.1.0"
 description = "A simple terminal-based project starter tool"
 readme = "README.md"
