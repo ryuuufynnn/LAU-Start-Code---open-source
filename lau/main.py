@@ -153,7 +153,7 @@ def main():
         print("Usage: stcode lau")
 
 def start_code():
-    GREEN, YELLOW, MAGENTA, CYAN, RESET = colors()
+    RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, RESET = colors()
 
     print(f"\n {CYAN}------------ LAU START CODE ------------{RESET}")
     print("|                 v2.1.0                 |")
