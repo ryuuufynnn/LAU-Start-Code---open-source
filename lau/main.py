@@ -154,7 +154,7 @@ def start_code():
     RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, RESET = colors()
 
     print(f"\n {CYAN}------------ LAU START CODE ------------{RESET}")
-    print("|                 v2.0.0                 |")
+    print("|                 v2.1.0                 |")
 
     print(f"\n{CYAN}> Project Setup")
     print(f"{CYAN} ----------------------------------------{RESET}")
