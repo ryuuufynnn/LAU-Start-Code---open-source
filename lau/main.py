@@ -1,5 +1,7 @@
 import sys # for command line args
 import subprocess # for vs code opening
+import platform
+import shutil
 from pathlib import Path
 
 penguin_name = "stcode lau"
@@ -151,7 +153,7 @@ def main():
         print("Usage: stcode lau")
 
 def start_code():
-    RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, RESET = colors()
+    GREEN, YELLOW, MAGENTA, CYAN, RESET = colors()
 
     print(f"\n {CYAN}------------ LAU START CODE ------------{RESET}")
     print("|                 v2.1.0                 |")
@@ -168,14 +170,31 @@ def start_code():
     print(f"Programming Language  : {language}")
     print(f"Location              : {project_path}{RESET}")
 
-    open_code_editor = input(f"\n  > Do you want to open VS Code [Y/n]? > {RESET}").strip().lower()
+    open_editor = input(f"\n  > Do you want to open VS Code [Y/n]? > {RESET}").strip().lower()
 
-    if open_code_editor == "y":
-        subprocess.run(["code", project_path])
-    elif open_code_editor == "n":
-        print(f"{YELLOW}Thank You for using LAU Start Code! Happy Coding!{RESET}\n")
+    if open_editor == "y":
+        open_code_editor(project_path)
     else:
         print(f"{YELLOW}Thank You for using LAU Start Code! Happy Coding!{RESET}\n")
+
+def open_code_editor(project_path):
+    RED =  colors()[0]
+    RESET = colors()[6]
+    system = platform.system()
+
+    if shutil.which("code"):
+        subprocess.run(["code", str(project_path)])
+        return
+
+    if system == "Linux" and shutil.which("flatpak"):
+        result = subprocess.run(
+            ["flatpak", "run", "com.visualstudio.code", str(project_path)]
+        )
+
+        if result.returncode == 0:
+            return
+
+    print(f"{RED}VS Code was not found on this system.{RESET}")
 
 if __name__ == "__main__":
     main()
